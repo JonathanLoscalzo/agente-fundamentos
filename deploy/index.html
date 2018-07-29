@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>2 Intelligent Agents</title>
+    <link rel="stylesheet" href="./public/stylesheets/style.css">
+    <link rel="stylesheet" href="./public/stylesheets/bootstrap.min.css">
+    <script src="./public/javascripts/jquery-1.12.4.min.js"></script> 
+    <script src="./public/javascripts/bootstrap.min.js"></script>    
+    <script src="./public/javascripts/d3.v4.min.js"></script>
+    <script src="./public/javascripts/brain-browser.js"></script>
+    <script src="https://www.lactame.com/lib/ml/2.2.0/ml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/synaptic/1.1.4/synaptic.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-sm-12" id="content">
+            <h1>Agentes</h1>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse2">Simple cleaning robot - Agente Reactivo</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <h2 id="simple-cleaning-robot">Simple cleaning robot</h2>
+                        <button id="generate-acd-world" class="btn btn-sm btn-primary">Generar Entorno</button>
+                        <button id="start-acd-world" class="btn btn-sm btn-primary">Comienza Robot</button>
+                        <div id="agent-controlled-diagram">
+
+                            <p>
+                                El robot: limpia si está sucio, sino se dirige hacía la derecha ( o izquierda), luego cambia de dirección cuando llega al
+                                final
+                            </p>
+
+                            <svg width="800" height="300"></svg>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse3">Simple cleaning robot - Neuronal Network</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <h2 id="simple-cleaning-robot">Simple cleaning robot - Neuronal network</h2>
+                        <button id="generate-and-world" class="btn btn-sm btn-primary">Generar Entorno</button>
+                        <button id="start-and-world" class="btn btn-sm btn-primary">Comienza Robot</button>
+                        <div id="agent-neuronal-diagram">
+
+                            <p>
+                                El robot: limpia si está sucio, sino se dirige hacía la derecha (o izquierda), luego cambia de dirección cuando llega al
+                                final.
+                            </p>
+                            <p>
+                                Se está utilizando una red neuronal precargada para realizar la operación.
+                            </p>
+                            <p>
+                                Tiene una predisposición a avanzar según de cual ubicación proviene, y en el caso de limpiar, vuelve hacía atrás.
+                            </p>
+                            <p>
+                                Seguramente no sea la forma mas eficiente para realizar el agente, además que no hay ninguna medida de rendimiento / recompompensa
+                                que vaya agregando más datos a la red.
+                            </p>
+                            <p>
+                                Se ingresaron los siguientes datos:
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" href="#collapse4">input data - Neuronal Network</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse4" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>[
+                                                <p>{ input: { location: 0, dirty: true, from: 1 }, output: { "SUCK": 0.8, "LEFT":
+                                                    0, "RIGHT": 0.2 } },</p>
+                                                <p>{ input: { location: 0, dirty: false, from: 1 }, output: { "SUCK": 0, "LEFT":
+                                                    0, "RIGHT": 1 } },</p>
+                                                <br />
+                                                <p>{ input: { location: 1, dirty: true, from: 0 }, output: { "SUCK": 0.8, "LEFT":
+                                                    0, "RIGHT": 0.2 } },</p>
+                                                <p>{ input: { location: 1, dirty: false, from: 0 }, output: { "SUCK": 0, "LEFT":
+                                                    0.2, "RIGHT": 0.6 } },</p>
+                                                <p>{ input: { location: 1, dirty: true, from: 2 }, output: { "SUCK": 0.8, "LEFT":
+                                                    0.2, "RIGHT": 0.0 } },</p>
+                                                <p>{ input: { location: 1, dirty: false, from: 2 }, output: { "SUCK": 0, "LEFT":
+                                                    0.6, "RIGHT": 0.2 } },</p>
+                                                <br />
+                                                <p>{ input: { location: 2, dirty: true, from: 1 }, output: { "SUCK": 0.8, "LEFT":
+                                                    0, "RIGHT": 0.2 } },</p>
+                                                <p>{ input: { location: 2, dirty: false, from: 1 }, output: { "SUCK": 0, "LEFT":
+                                                    0.2, "RIGHT": 0.6 } },</p>
+                                                <p>{ input: { location: 2, dirty: true, from: 3 }, output: { "SUCK": 0.8, "LEFT":
+                                                    0.2, "RIGHT": 0.0 } },</p>
+                                                <p>{ input: { location: 2, dirty: false, from: 3 }, output: { "SUCK": 0, "LEFT":
+                                                    0.6, "RIGHT": 0.2 } },</p>
+                                                <br />
+                                                <p>{ input: { location: 3, dirty: true, from: 2 }, output: { "SUCK": 0.8, "LEFT":
+                                                    0.2, "RIGHT": 0 } },</p>
+                                                <p>{ input: { location: 3, dirty: false, from: 2 }, output: { "SUCK": 0, "LEFT":
+                                                    1, "RIGHT": 0 } },</p>
+                                                <p>]</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                </p>
+
+                                <svg width="800" height="300"></svg>
+                                <p>
+                                    <a href="https://github.com/BrainJS/brain.js">Link de la Librería</a>
+                                </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse5">Simple cleaning robot - Markov - Reinforcement learning</a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <h2 id="simple-cleaning-robot">Simple cleaning robot</h2>
+                        <button id="generate-acd-world" class="btn btn-sm btn-primary">Generar Entorno</button>
+                        <button id="start-acd-world" class="btn btn-sm btn-primary">Comienza Robot</button>
+                        <div id="agent-controlled-diagram">
+
+                            <p>
+                                El robot: limpia si está sucio, sino se dirige hacía la derecha ( o izquierda), luego cambia de dirección cuando llega al
+                                final
+                            </p>
+
+                            <svg width="800" height="300"></svg>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="./src/cleaningRobot.js"></script>
+    <script type="text/javascript" src="./src/rendering.js"></script>
+    <script type="text/javascript" src="./src/index.js"></script>
+</body>
+
+</html>

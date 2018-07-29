@@ -1,0 +1,79 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+footer{
+    background-color: #555;
+    color: white;
+    padding: 15px;
+}
+
+h3{
+    padding: 1em;
+}
+
+.dl-horizontal dt
+{
+    padding:10px;
+    white-space: normal;
+}
+.dl-horizontal dd
+{
+    padding:10px;
+    white-space: normal;
+}
+
+pre{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+
+.navbar-inverse{
+  border-radius: 0;
+}
+
+.floor:hover {
+  cursor: pointer;
+}
+
+.agent-actions {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+.agent-actions th {
+  padding: 0.5ex;
+  border: 1px solid hsl(240, 10%, 90%);
+  background: hsl(240, 10%, 85%);
+  text-align: center;
+}
+
+.agent-actions td {
+  padding: 0.25ex;
+  border: 1px solid hsl(240, 20%, 80%);
+  text-align: center;
+}
+
+.robot {
+  transition: transform 2.0s;
+}
+
+.floor {
+  fill: white;
+}
+
+.floor.clean {
+  fill: hsl(240, 10%, 90%);
+  transition: fill 2.0s;
+}
+
+.floor.dirty {
+  fill: hsl(0, 50%, 50%);
+  transition: fill 0.1s;
+}
