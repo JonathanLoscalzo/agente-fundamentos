@@ -1,0 +1,27 @@
+{
+  "name": "entrega-agente-fundamentos",
+  "version": "1.0.0",
+  "description": "entrega para cátedra de fundamentos un agente inteligente con brainjs",
+  "main": "index.html",
+  "homepage": "http://jonathanloscalzo.github.io/agente-jloscalzo",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "",
+    "deploy": "gh-pages -d ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/agente-jloscalzo.git"
+  },
+  "keywords": [
+    "agent",
+    "brainjs",
+    "javascript",
+    "js"
+  ],
+  "author": "Jonathan Loscalzo",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
+  }
+}
